@@ -29,9 +29,9 @@ ifneq ($(NETCDFROOT),)
   INCS_SER = -I$(NETCDFROOT)/include
   INCS_OMP = -I$(NETCDFROOT)/include
   INCS_MPI = -I$(NETCDFROOT)/include
-  LIBS_SER = $(LIBS_SER) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
-  LIBS_OMP = $(LIBS_OMP) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
-  LIBS_MPI = $(LIBS_MPI) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
+  LIBS_SER := $(LIBS_SER) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
+  LIBS_OMP := $(LIBS_OMP) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
+  LIBS_MPI := $(LIBS_MPI) -L$(NETCDFROOT)/lib -lnetcdf -lnetcdff
   NCF_OBJS = nctablemd.o agioncmd.o swn_outnc.o
 else
   INCS_SER =
@@ -49,5 +49,5 @@ else
   swch = -unix
 endif
 ifneq ($(NETCDFROOT),)
-  swch = $(swch) -netcdf
+  swch := $(swch) -netcdf
 endif
